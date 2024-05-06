@@ -238,10 +238,10 @@
             max: 1000,
             values: [0, 1000],
             slide: function(event, ui) {
-                $(this).closest('.filter').find($sliderAmount).val("₹" + ui.values[0] + " - ₹" + ui.values[1]);
+                $(this).closest('.filter').find($sliderAmount).val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
         });
-        $(this).closest('.filter').find($sliderAmount).val("₹" + $sliderRange.slider("values", 0) + " - ₹" + $sliderRange.slider("values", 1));
+        $(this).closest('.filter').find($sliderAmount).val("$" + $sliderRange.slider("values", 0) + " - $" + $sliderRange.slider("values", 1));
     });
 
     /*-------------------  Dropzone UPLOAD ---------------------*/

@@ -407,7 +407,7 @@
                                     <div class="property--info">
                                         <h5 class="property--title"><a href="{% url 'property_single' property.id %}">{{property.title}}</a></h5>
                                         <p class="property--location">{{property.locality}}</p>
-                                        <p class="property--price">₹{{property.indian_currency}}</p>
+                                        <p class="property--price">${{property.indian_currency}}</p>
                                     </div>
                                     <!-- .property-info end -->
                                     <div class="property--features">

@@ -1,0 +1,4 @@
+{
+  "Interpreter": "CSIT314\\Scripts\\python.exe",
+  "TestFramework": "Pytest"
+}

@@ -256,10 +256,10 @@ def admin_add_property(request):
             def format_indian(t):
                 dic = {
                     4:'Thousand',
-                    5:'Lakh',
-                    6:'Lakh',
-                    7:'Crore',
-                    8:'Crore',
+                    5:'Hundred Thousand',
+                    6:'Hundred Thousand',
+                    7:'Million',
+                    8:'Million',
                     9:'Billion'
                 }
                 y = 10
@@ -458,10 +458,10 @@ def admin_edit_property(request, pk):
             def format_indian(t):
                 dic = {
                     4:'Thousand',
-                    5:'Lakh',
-                    6:'Lakh',
-                    7:'Crore',
-                    8:'Crore',
+                    5:'Hundred Thousand',
+                    6:'Hundred Thousand',
+                    7:'Million',
+                    8:'Million',
                     9:'Billion'
                 }
                 y = 10

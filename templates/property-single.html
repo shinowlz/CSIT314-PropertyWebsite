@@ -89,7 +89,7 @@
                         </div>
                         <div class="pull-right">
                             <span class="property--status">For {{property.property_for_id.property_for_name}}</span>
-                            <p class="property--price">₹{{property.indian_currency}}</p>
+                            <p class="property--price">${{property.indian_currency}}</p>
                         </div>
                     </div>
                     <!-- .property-info end -->
@@ -742,7 +742,7 @@
                             <div class="property--info">
                                 <h5 class="property--title"><a href="{% url 'property_single' simpro.id %}">{{simpro.title}}</a></h5>
                                 <p class="property--location">{{simpro.locality}}</p>
-                                <p class="property--price">₹{{simpro.indian_currency}}</p>
+                                <p class="property--price">${{simpro.indian_currency}}</p>
                             </div>
                             <!-- .property-info end -->
                             <div class="property--features">
