@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='property',
-            name='indian_currency',
+            name='prop_currency',
             field=models.CharField(default=0, max_length=30),
         ),
         migrations.CreateModel(

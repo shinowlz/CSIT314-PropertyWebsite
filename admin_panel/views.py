@@ -248,7 +248,9 @@ def admin_add_property(request):
 
             # Auto Generated Title
             propertytype       = PropertyType.objects.get(id=property_type_data)
+
             room     = str(bedroom) + " Room "
+
             title   = room + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
@@ -461,7 +463,9 @@ def admin_edit_property(request, pk):
 
             # Auto Generated Title
             propertytype       = PropertyType.objects.get(id=property_type_data)
+
             room     = str(bedroom) + " Room "
+
             title   = room + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
