@@ -248,8 +248,8 @@ def admin_add_property(request):
 
             # Auto Generated Title
             propertytype       = PropertyType.objects.get(id=property_type_data)
-            bhk     = str(bedroom) + " BHK "
-            title   = bhk + propertytype.property_type_name+" in "+ str(locality)
+            room     = str(bedroom) + " room "
+            title   = room + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
            #currency to words
@@ -461,8 +461,8 @@ def admin_edit_property(request, pk):
 
             # Auto Generated Title
             propertytype       = PropertyType.objects.get(id=property_type_data)
-            bhk     = str(bedroom) + " BHK "
-            title   = bhk + propertytype.property_type_name+" in "+ str(locality)
+            room     = str(bedroom) + " room "
+            title   = room + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
           #currency to words
