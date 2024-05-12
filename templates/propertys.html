@@ -7,9 +7,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--IE Compatibility Meta-->
-<meta name="author" content="Ashwin John Dibu" />
+<meta name="author" content="CSIT314" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Property List page of million estate site">
+<meta name="description" content="Property List page of EzProperty">
 <link href="{% static 'images/favicon/crown.png' %}" rel="icon">
 
 <!-- Stylesheets
@@ -18,7 +18,7 @@
     <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
 
-<title> Property List | TheMillionEstate</title>
+<title> Property List | EzProperty</title>
 <style>
     .image-resize{
         height: 240px;
@@ -407,7 +407,7 @@
                                     <div class="property--info">
                                         <h5 class="property--title"><a href="{% url 'property_single' property.id %}">{{property.title}}</a></h5>
                                         <p class="property--location">{{property.locality}}</p>
-                                        <p class="property--price">${{property.prop_currency}}</p>
+                                        <p class="property--price">${{property.indian_currency}}</p>
                                     </div>
                                     <!-- .property-info end -->
                                     <div class="property--features">
