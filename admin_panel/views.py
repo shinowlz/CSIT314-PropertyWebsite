@@ -252,35 +252,46 @@ def admin_add_property(request):
             title   = bhk + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
-            # Indian Currency Format Words
-            def format_indian(t):
-                dic = {
-                    4:'Thousand',
-                    5:'Hundred Thousand',
-                    6:'Hundred Thousand',
-                    7:'Million',
-                    8:'Million',
-                    9:'Billion'
-                }
-                y = 10
-                len_of_number = len(str(t))
-                save = t
-                z=y
-                while(t!=0):
-                    t=int(t/y)
-                    z*=10
+           #currency to words
+        def num_to_words(num):
+            # Define lists for converting numbers to words
+            ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
+            tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
+               
+            def convert_less_than_thousand(n):
+                if n == 0:
+                    return ''
+                elif n < 10:
+                    return ones[n]
+                elif n < 20:
+                    return teens[n - 10]
+                elif n < 100:
+                    return tens[n // 10] + '' + ones[n % 10]
+                else:
+                    return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
+            
+            # Handle special cases
+            if num == 0:
+                return 'zero'
+            elif num < 0:
+                return 'minus ' + num_to_words(abs(num))
+            
+            # Convert the number group by group
+            parts = []
+            for i in range(len(thousands)):
+                if num % 1000 != 0:
+                    part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
+                    parts.insert(0, part.strip())
+                num //= 1000
+            
+            return ' '.join(parts)
 
-                zeros = len(str(z)) - 3
-                if zeros>3:
-                    if zeros%2!=0:
-                        string = str(save/(z/100))[0:4]+" "+dic[zeros]
-                    else:   
-                        string = str(save/(z/1000))[0:4]+" "+dic[zeros]
-                    return string
-                return str(save)
-            if price:
-                indian_currency = format_indian(int(price))
-                print(indian_currency)
+            
+        if price:
+            indian_currency = num_to_words(int(price))
+            print(indian_currency)
 
             
             property_details = Property.objects.create(
@@ -454,35 +465,46 @@ def admin_edit_property(request, pk):
             title   = bhk + propertytype.property_type_name+" in "+ str(locality)
             print(title)
 
-            # Indian Currency Format Words
-            def format_indian(t):
-                dic = {
-                    4:'Thousand',
-                    5:'Hundred Thousand',
-                    6:'Hundred Thousand',
-                    7:'Million',
-                    8:'Million',
-                    9:'Billion'
-                }
-                y = 10
-                len_of_number = len(str(t))
-                save = t
-                z=y
-                while(t!=0):
-                    t=int(t/y)
-                    z*=10
+          #currency to words
+        def num_to_words(num):
+            # Define lists for converting numbers to words
+            ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
+            tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
+               
+            def convert_less_than_thousand(n):
+                if n == 0:
+                    return ''
+                elif n < 10:
+                    return ones[n]
+                elif n < 20:
+                    return teens[n - 10]
+                elif n < 100:
+                    return tens[n // 10] + '' + ones[n % 10]
+                else:
+                    return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
+            
+            # Handle special cases
+            if num == 0:
+                return 'zero'
+            elif num < 0:
+                return 'minus ' + num_to_words(abs(num))
+            
+            # Convert the number group by group
+            parts = []
+            for i in range(len(thousands)):
+                if num % 1000 != 0:
+                    part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
+                    parts.insert(0, part.strip())
+                num //= 1000
+            
+            return ' '.join(parts)
 
-                zeros = len(str(z)) - 3
-                if zeros>3:
-                    if zeros%2!=0:
-                        string = str(save/(z/100))[0:4]+" "+dic[zeros]
-                    else:   
-                        string = str(save/(z/1000))[0:4]+" "+dic[zeros]
-                    return string
-                return str(save)
-            if price:
-                indian_currency = format_indian(int(price))
-                print(indian_currency)
+            
+        if price:
+            indian_currency = num_to_words(int(price))
+            print(indian_currency)
 
 
             property.property_for_id_id = property_for_data
