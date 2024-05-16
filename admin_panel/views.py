@@ -255,45 +255,44 @@ def admin_add_property(request):
             print(title)
 
            #currency to words
-        def num_to_words(num):
-            # Define lists for converting numbers to words
-            ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-            teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
-            tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-            thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
+        # def num_to_words(num):
+        #     # Define lists for converting numbers to words
+        #     ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        #     teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
+        #     tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        #     thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
                
-            def convert_less_than_thousand(n):
-                if n == 0:
-                    return ''
-                elif n < 10:
-                    return ones[n]
-                elif n < 20:
-                    return teens[n - 10]
-                elif n < 100:
-                    return tens[n // 10] + '' + ones[n % 10]
-                else:
-                    return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
+        #     def convert_less_than_thousand(n):
+        #         if n == 0:
+        #             return ''
+        #         elif n < 10:
+        #             return ones[n]
+        #         elif n < 20:
+        #             return teens[n - 10]
+        #         elif n < 100:
+        #             return tens[n // 10] + '' + ones[n % 10]
+        #         else:
+        #             return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
             
-            # Handle special cases
-            if num == 0:
-                return 'zero'
-            elif num < 0:
-                return 'minus ' + num_to_words(abs(num))
+        #     # Handle special cases
+        #     if num == 0:
+        #         return 'zero'
+        #     elif num < 0:
+        #         return 'minus ' + num_to_words(abs(num))
             
-            # Convert the number group by group
-            parts = []
-            for i in range(len(thousands)):
-                if num % 1000 != 0:
-                    part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
-                    parts.insert(0, part.strip())
-                num //= 1000
+        #     # Convert the number group by group
+        #     parts = []
+        #     for i in range(len(thousands)):
+        #         if num % 1000 != 0:
+        #             part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
+        #             parts.insert(0, part.strip())
+        #         num //= 1000
             
-            return ' '.join(parts)
+        #     return ' '.join(parts)
 
             
         if price:
-            indian_currency = num_to_words(int(price))
-            print(indian_currency)
+            indian_currency = price
 
             
             property_details = Property.objects.create(
@@ -470,45 +469,44 @@ def admin_edit_property(request, pk):
             print(title)
 
           #currency to words
-        def num_to_words(num):
-            # Define lists for converting numbers to words
-            ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-            teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
-            tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-            thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
+        # def num_to_words(num):
+        #     # Define lists for converting numbers to words
+        #     ones = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        #     teens = ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19']
+        #     tens = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        #     thousands = ['', 'thousand', 'million', 'billion', 'trillion']  # Adjust as needed
                
-            def convert_less_than_thousand(n):
-                if n == 0:
-                    return ''
-                elif n < 10:
-                    return ones[n]
-                elif n < 20:
-                    return teens[n - 10]
-                elif n < 100:
-                    return tens[n // 10] + '' + ones[n % 10]
-                else:
-                    return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
+        #     def convert_less_than_thousand(n):
+        #         if n == 0:
+        #             return ''
+        #         elif n < 10:
+        #             return ones[n]
+        #         elif n < 20:
+        #             return teens[n - 10]
+        #         elif n < 100:
+        #             return tens[n // 10] + '' + ones[n % 10]
+        #         else:
+        #             return ones[n // 100] + ' hundred ' + convert_less_than_thousand(n % 100)
             
-            # Handle special cases
-            if num == 0:
-                return 'zero'
-            elif num < 0:
-                return 'minus ' + num_to_words(abs(num))
+        #     # Handle special cases
+        #     if num == 0:
+        #         return 'zero'
+        #     elif num < 0:
+        #         return 'minus ' + num_to_words(abs(num))
             
-            # Convert the number group by group
-            parts = []
-            for i in range(len(thousands)):
-                if num % 1000 != 0:
-                    part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
-                    parts.insert(0, part.strip())
-                num //= 1000
+        #     # Convert the number group by group
+        #     parts = []
+        #     for i in range(len(thousands)):
+        #         if num % 1000 != 0:
+        #             part = convert_less_than_thousand(num % 1000) + ' ' + thousands[i]
+        #             parts.insert(0, part.strip())
+        #         num //= 1000
             
-            return ' '.join(parts)
+        #     return ' '.join(parts)
 
             
         if price:
-            indian_currency = num_to_words(int(price))
-            print(indian_currency)
+            indian_currency = price
 
 
             property.property_for_id_id = property_for_data
