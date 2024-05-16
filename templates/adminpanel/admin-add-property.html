@@ -568,7 +568,7 @@ $('body').on('keyup change blur input', '[data-action=convert-to-words]', functi
 var $this = $(this);
 var target = $this.data('target');
 var amt = $this.val();
-var words = convertNumberToWords(amt);
+var words = amt;
 $('[data-attrib="'+target+'"]').text(words);
 });
 
