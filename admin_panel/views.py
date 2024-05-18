@@ -291,7 +291,7 @@ def admin_add_property(request):
         #     return ' '.join(parts)
 
             
-        
+
             indian_currency = price
 
             
